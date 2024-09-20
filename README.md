@@ -1,2 +1,7 @@
-# Emotion-detector-Ai
-Emotion detector using kaggle
+## Emotion Detection using AI
+
+## Emotion Detection
+
+Emotion detection using kaggle
+
+
