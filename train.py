@@ -5,18 +5,17 @@ from keras.layers import Conv2D,MaxPooling2D,ZeroPadding2D
 from keras.layers.normalization import BatchNormalization
 from keras.preprocessing.image import ImageDataGenerator
 
-# MobileNet is designed to work with images of dim 224,224
+
 img_rows,img_cols = 224,224
 
 MobileNet = MobileNet(weights='imagenet',include_top=False,input_shape=(img_rows,img_cols,3))
 
-# Here we freeze the last 4 layers
-# Layers are set to trainable as True by default
+
 
 for layer in MobileNet.layers:
     layer.trainable = True
 
-# Let's print our layers
+
 for (i,layer) in enumerate(MobileNet.layers):
     print(str(i),layer.__class__.__name__,layer.trainable)
 
@@ -44,8 +43,8 @@ model = Model(inputs = MobileNet.input, outputs = FC_Head)
 
 print(model.summary())
 
-train_data_dir = '/Users/durgeshthakur/Deep Learning Stuff/Emotion Classification/fer2013/train'
-validation_data_dir = '/Users/durgeshthakur/Deep Learning Stuff/Emotion Classification/fer2013/validation'
+train_data_dir = '/Users/Sarwadnya/ai/train'
+validation_data_dir = '/Users/Sarwadnya/ai/validation'
 
 train_datagen = ImageDataGenerator(
                     rescale=1./255,
